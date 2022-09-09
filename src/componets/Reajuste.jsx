@@ -19,6 +19,7 @@ const Reajuste = () => {
     });
 
     window.localStorage.setItem('registro', JSON.stringify(newRegister))
+    alert('¡El reajuste se realizo con exito!')
 };
 
 export default Reajuste;

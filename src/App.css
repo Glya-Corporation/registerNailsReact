@@ -209,3 +209,8 @@ header nav ul li a:hover{
     margin: 1rem 0;
     border-bottom: 1px dashed #000000;
 }
+.icon-closed{
+    cursor: pointer;
+    position: relative;
+    margin-left: 95%;
+}

@@ -83,7 +83,7 @@ const Reports = ({ clientes, porcentaje }) => {
                         <h4 className="contact-card--data">Total Cobrado</h4>
                         <p>{totalCobrado} $</p>
                         <h4 className="contact-card--data">Total Ganado</h4>
-                        <p>{totalCobrado * (porcentajeDeGanancia / 100)} $</p>
+                        <p>{(totalCobrado * (porcentajeDeGanancia / 100)).toFixed(2)} $</p>
                     </div>
                 ) : (
                     <div className="contact-card">
