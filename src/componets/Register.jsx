@@ -23,7 +23,7 @@ const Register = ({clientes}) => {
                 description: `${description_form}`,
                 estado: 'activo'
             }
-            clientes.push(nuevoCliente)
+            clientes.unshift(nuevoCliente)
             valorId++
             window.localStorage.setItem('idGuardada', JSON.stringify(valorId));
             window.localStorage.setItem('clientesGuardados', JSON.stringify(clientes));
@@ -44,7 +44,7 @@ const Register = ({clientes}) => {
                 <section className="section-form">
                     <form action="" id="nuevoRegistro">
                         <h2 className="titulo">Ingrese los datos del nuevo cliente</h2>
-                        <input className="input-form" id="date_form" type="date" required />
+                        <input className="input-form" id="date_form" type="date"  required />
                         <input className="input-form" id="name_form" type="text" placeholder="* Nombre y Apellido" required />
                         <select defaultValue={"default"} className="input-form" name="service_form" id="service_form" required >
                             <option disabled value="default">* Seleccionar...</option>
