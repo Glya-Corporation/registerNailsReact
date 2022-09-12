@@ -61,7 +61,7 @@ const Closed = ({ clientes, porcentaje, registro }) => {
                                         <li className="li" id={reg.inicio} key={reg.inicio}>
                                             <p className="td">{reg.inicio}</p>
                                             <p className="td">{reg.cierre}</p>
-                                            <p className="td">{reg.ganado} $</p>
+                                            <p className="td">{(reg.ganado).toFixed(2)} $</p>
                                             <p className="td"><button onClick={e => show(e.target.parentElement.parentElement.id)} className="ver_registro">Ver</button></p>
                                         </li>
                                     ))
@@ -76,7 +76,7 @@ const Closed = ({ clientes, porcentaje, registro }) => {
                             <li className="li-register"><b>Fecha Inicio:</b> {showRegister.inicio}</li>
                             <li className="li-register"><b>Fecha Cierre:</b> {showRegister.cierre}</li>
                             <li className="li-register"><b>Total Cobrado:</b> {showRegister.cobrado} $</li>
-                            <li className="li-register"><b>Total Ganado:</b> {showRegister.ganado} $</li>
+                            <li className="li-register"><b>Total Ganado:</b> {(showRegister.ganado).toFixed(2)} $</li>
                         </div>
                         <ul>
                             {
