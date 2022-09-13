@@ -34,10 +34,19 @@ const Closed = ({ clientes, porcentaje, registro }) => {
         }
     }
 
-    const show = (data) => {
+    const show = data => {
         let registroV = registro.find(reg => reg.inicio === data)
         setShowRegister(registroV)
         setShowContent(false)
+    }
+
+    const closeDelete = fechaInicial => {
+        const newRegister = registro.filter(element => element.inicio !== fechaInicial)
+        registro = []
+        registro = [...newRegister]
+        window.localStorage.setItem('registro', JSON.stringify(registro))
+        alert('Registro eliminado con exito')
+        setShowContent(true)
     }
 
 
@@ -61,7 +70,7 @@ const Closed = ({ clientes, porcentaje, registro }) => {
                                         <li className="li" id={reg.inicio} key={reg.inicio}>
                                             <p className="td">{reg.inicio}</p>
                                             <p className="td">{reg.cierre}</p>
-                                            <p className="td">{(reg.ganado).toFixed(2)} $</p>
+                                            <p className="td">{reg.ganado} $</p>
                                             <p className="td"><button onClick={e => show(e.target.parentElement.parentElement.id)} className="ver_registro">Ver</button></p>
                                         </li>
                                     ))
@@ -76,12 +85,13 @@ const Closed = ({ clientes, porcentaje, registro }) => {
                             <li className="li-register"><b>Fecha Inicio:</b> {showRegister.inicio}</li>
                             <li className="li-register"><b>Fecha Cierre:</b> {showRegister.cierre}</li>
                             <li className="li-register"><b>Total Cobrado:</b> {showRegister.cobrado} $</li>
-                            <li className="li-register"><b>Total Ganado:</b> {(showRegister.ganado).toFixed(2)} $</li>
+                            <li className="li-register"><b>Total Ganado:</b> {showRegister.ganado} $</li>
+                            <button id={showRegister.inicio} className="btn_cierre" onClick={e=> closeDelete(e.target.id)}>Borrar Registro</button>
                         </div>
                         <ul>
                             {
                                 showRegister.clientes.map(cliente => (
-                                    <li className="list-register">
+                                    <li className="list-register" key={cliente.id}>
                                         <p><b>Id:</b> {cliente.id}</p>
                                         <p><b>Estado:</b> {cliente.estado}</p>
                                         <p><b>Nompre:</b> {cliente.name}</p>
