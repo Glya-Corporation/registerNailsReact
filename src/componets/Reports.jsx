@@ -35,7 +35,7 @@ const Reports = ({ clientes, porcentaje }) => {
             cobrado += parseFloat(element.price)
         })
         setContador({ ...contando })
-        setTotalCobrado(cobrado)
+        setTotalCobrado(cobrado.toFixed(2))
         if (porcentaje === null) porcentaje = 0
         setPorcentajeDeGanancia(porcentaje)
     }
