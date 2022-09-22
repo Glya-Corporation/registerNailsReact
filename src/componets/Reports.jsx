@@ -41,7 +41,7 @@ const Reports = ({ clientes, porcentaje }) => {
     }
 
     useEffect(() => {
-        data(clientes)
+        if(clientes) data(clientes)
     }, [])
 
 

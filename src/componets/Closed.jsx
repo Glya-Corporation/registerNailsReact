@@ -1,36 +1,38 @@
 import { useState } from "react";
 
 const Closed = ({ clientes, porcentaje, registro }) => {
+    let customers = clientes
     if (registro === null) registro = []
     const [showContent, setShowContent] = useState(true)
     const [showRegister, setShowRegister] = useState({})
 
     const doClose = () => {
-        if (clientes.length < 1) {
+        if (customers.length < 1) {
             alert('No hay datos para el cierre')
         } else {
             let totalCobrado = 0
             let totaGanado = 0
 
-            clientes.forEach(element => {
+            customers.forEach(element => {
                 totalCobrado += parseFloat(element.price)
             })
 
             totaGanado = totalCobrado * (porcentaje / 100)
 
             let registroActual = {
-                inicio: clientes[0].date,
-                cierre: clientes[clientes.length - 1].date,
+                inicio: customers[0].date,
+                cierre: customers[customers.length - 1].date,
                 cobrado: totalCobrado.toFixed(2),
                 ganado: totaGanado.toFixed(2),
-                clientes: [...clientes]
+                clientes: [...customers]
             }
 
             registro.unshift(registroActual)
             window.localStorage.setItem('registro', JSON.stringify(registro))
-            let clientesV = []
-            window.localStorage.setItem('clientesGuardados', JSON.stringify(clientesV))
+            customers = []
+            window.localStorage.setItem('clientesGuardados', JSON.stringify(customers))
             alert('Cierre realizado con exito')
+            window.location.reload()
         }
     }
 
@@ -49,7 +51,7 @@ const Closed = ({ clientes, porcentaje, registro }) => {
         setShowContent(true)
     }
 
-
+    
     return (
         <>
             {

@@ -10,7 +10,7 @@ const DeletedCustomers = () => {
                     <ul>
                         {
                             deletedCustomers.map(cliente => (
-                                <li className="list-register">
+                                <li className="list-register" key={cliente.id}>
                                     <p><b>Id:</b> {cliente.id}</p>
                                     <p><b>Estado:</b> {cliente.estado}</p>
                                     <p><b>Nompre:</b> {cliente.name}</p>

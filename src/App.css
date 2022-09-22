@@ -63,7 +63,7 @@ header nav ul li{
     list-style: none;
     align-items: center;
 }
-header nav ul li a{
+.a{
     text-decoration: none;
     color: var(--blanco);
     cursor: pointer;
