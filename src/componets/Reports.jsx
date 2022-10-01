@@ -1,13 +1,34 @@
 import { useState, useEffect } from "react";
+import Advances from "./Advances";
 
 const Reports = ({ clientes, porcentaje }) => {
     const [isVisible, setIsVisible] = useState(true)
     const [contador, setContador] = useState({})
     const [totalCobrado, setTotalCobrado] = useState(0)
     const [porcentajeDeGanancia, setPorcentajeDeGanancia] = useState(0)
-    const [inicio, setInicio] = useState('') 
-    const [fin, setFin] = useState('') 
-    
+    const [inicio, setInicio] = useState('')
+    const [fin, setFin] = useState('')
+    const [btnAdvances, setBtnAdvances] = useState(false)
+    const [advances, setAdvances] = useState(true)
+
+    const totalAdvances = () => {
+        let total = 0
+        let advancesSumar = JSON.parse(window.localStorage.getItem('advances'))
+        if (advancesSumar !== null) {
+            advancesSumar.forEach(advance => {
+                total += parseFloat(advance.amount)
+            })
+        }
+        return total
+    }
+
+
+    const showAdvances = () => {
+        setBtnAdvances(!btnAdvances)
+        setAdvances(!advances)
+    }
+
+
     const data = (usersData) => {
         /* Declaracion y comprotamientos de Variables */
         const contando = {
@@ -19,7 +40,7 @@ const Reports = ({ clientes, porcentaje }) => {
         };
 
         let cobrado = 0;
-        
+
         /* Contar servicios realizados */
         usersData.map(element => {
             element.service
@@ -41,7 +62,7 @@ const Reports = ({ clientes, porcentaje }) => {
     }
 
     useEffect(() => {
-        if(clientes) data(clientes)
+        if (clientes) data(clientes)
     }, [])
 
 
@@ -62,11 +83,14 @@ const Reports = ({ clientes, porcentaje }) => {
 
     return (
         <div>
+            {
+                btnAdvances && <Advances />
+            }
             <main className="contenedor">
                 <h2 className="titulo">Reportes</h2>
                 <div className="fechas-filtrado">
-                    <input className="fechas--filtrado-input" type="date" value={inicio} onChange={e=> setInicio(e.target.value)} />
-                    <input className="fechas--filtrado-input" type="date" value={fin} onChange={e=> setFin(e.target.value)} />
+                    <input className="fechas--filtrado-input" type="date" value={inicio} onChange={e => setInicio(e.target.value)} />
+                    <input className="fechas--filtrado-input" type="date" value={fin} onChange={e => setFin(e.target.value)} />
                     <input onClick={filtrarClientes} className="btn_filtrar" type="button" value="Filtrar" id="btn_filtrar" />
                 </div>
                 <section className="section-reportes" id="reporte_total"></section>
@@ -83,7 +107,7 @@ const Reports = ({ clientes, porcentaje }) => {
                         <h4 className="contact-card--data">Total Cobrado</h4>
                         <p>{totalCobrado} $</p>
                         <h4 className="contact-card--data">Total Ganado</h4>
-                        <p>{(totalCobrado * (porcentajeDeGanancia / 100)).toFixed(2)} $</p>
+                        <p>{totalAdvances() > 0 && '*'} {((totalCobrado * (porcentajeDeGanancia / 100)) - totalAdvances()).toFixed(2)} $</p>
                     </div>
                 ) : (
                     <div className="contact-card">
@@ -99,6 +123,7 @@ const Reports = ({ clientes, porcentaje }) => {
                         <p>{totalCobrado * (porcentajeDeGanancia / 100)} $</p>
                     </div>)
             }
+            <button onClick={() => showAdvances()} className='material-symbols-outlined btn-add-advances'>{advances ? 'add' : 'close'}</button>
         </div>
     );
 };

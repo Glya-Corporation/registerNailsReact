@@ -31,6 +31,7 @@ const Closed = ({ clientes, porcentaje, registro }) => {
             window.localStorage.setItem('registro', JSON.stringify(registro))
             customers = []
             window.localStorage.setItem('clientesGuardados', JSON.stringify(customers))
+            window.localStorage.setItem('advances', JSON.stringify(customers))
             alert('Cierre realizado con exito')
             window.location.reload()
         }

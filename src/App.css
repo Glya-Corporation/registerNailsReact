@@ -1,19 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'montserrat';
 }
-:root{
+
+:root {
     --primario: #af0069;
     --primarioTransparente: #af006970;
     --secundario: #48002b;
     --negro: #000000;
     --blanco: #ffffff;
 }
-header{
+
+header {
     width: 100vw;
     height: 3rem;
     background-color: var(--primario);
@@ -22,19 +24,23 @@ header{
     left: 0;
     color: var(--blanco)
 }
-header nav{
+
+header nav {
     height: 100%;
     display: flex;
     position: relative;
     padding: .5rem 1.5rem;
     justify-content: left;
     align-items: center;
+    z-index: 900;
 }
-.icono-menu{
+
+.icono-menu {
     cursor: pointer;
     transition: all .5s linear;
 }
-.menu{
+
+.menu {
     position: fixed;
     display: grid;
     background-color: var(--primario);
@@ -46,24 +52,30 @@ header nav{
     transform: translateX(-100vw);
     transition: all .4s linear;
     overflow-y: scroll;
+    z-index: 900;
 }
-.subtitulo{
+
+.subtitulo {
     text-align: center;
     margin: 1.5rem 0;
 }
-.mostrar-menu{
+
+.mostrar-menu {
     transform: translateX(0);
 }
-.girar{
+
+.girar {
     transform: rotateY(180deg);
 }
-header nav ul li{
+
+header nav ul li {
     display: flex;
     gap: 5px;
     list-style: none;
     align-items: center;
 }
-.a{
+
+.a {
     text-decoration: none;
     color: var(--blanco);
     cursor: pointer;
@@ -71,25 +83,29 @@ header nav ul li{
     transition: all .3s linear;
     border-radius: 2rem;
 }
-header nav ul li a:hover{
+
+header nav ul li a:hover {
     background-color: #ffffff70;
     color: var(--secundario);
     border-radius: 2rem;
 }
-.contenedor{
+
+.contenedor {
     display: grid;
     width: 100vw;
 }
-.section-form{
+
+.section-form {
     margin: 20px auto;
     width: 80vw;
     background-color: var(--primarioTransparente);
     border-radius: 1rem;
     padding: 2.5rem 1rem;
     text-align: center;
-    
+
 }
-.input-form{
+
+.input-form {
     border: none;
     border-radius: 1rem;
     width: 70%;
@@ -98,29 +114,35 @@ header nav ul li a:hover{
     margin-top: 10px;
     background-color: #ffffff70;
 }
-.input-form:focus{
+
+.input-form:focus {
     outline: none;
 }
-.description{
+
+.description {
     resize: none;
     height: 6rem;
 }
-.titulo{
+
+.titulo {
     text-align: center;
     padding: .5rem;
     margin: 10px;
 }
-.btn_form{
+
+.btn_form {
     background-color: var(--primario);
     color: var(--blanco);
     font-size: 18px;
 }
-.section-clientes{
+
+.section-clientes {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
 }
-.contact-card{
+
+.contact-card {
     text-align: center;
     width: 250px;
     box-shadow: 0px 0px 15px #00000070;
@@ -129,12 +151,14 @@ header nav ul li a:hover{
     border-radius: 1rem;
     margin: auto;
 }
-.contact-card--data{
+
+.contact-card--data {
     margin: 10px 0;
     font-weight: bold;
     text-transform: uppercase;
 }
-.fechas-filtrado{
+
+.fechas-filtrado {
     width: 100vw;
     display: flex;
     flex-wrap: wrap;
@@ -142,7 +166,8 @@ header nav ul li a:hover{
     justify-content: center;
     margin-bottom: 20px;
 }
-.fechas--filtrado-input{
+
+.fechas--filtrado-input {
     width: 9rem;
     height: 1.5rem;
     border: .5px solid var(--secundario);
@@ -150,7 +175,8 @@ header nav ul li a:hover{
     background-color: transparent;
     text-align: center;
 }
-.btn_filtrar{
+
+.btn_filtrar {
     width: 6rem;
     height: 2rem;
     border-radius: .5rem;
@@ -162,7 +188,8 @@ header nav ul li a:hover{
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 2px;
 }
-.btnEliminarCliente{
+
+.btnEliminarCliente {
     border: transparent;
     padding: .6rem;
     border-radius: .5rem;
@@ -171,7 +198,8 @@ header nav ul li a:hover{
     font-size: 1rem;
     margin-top: 1rem;
 }
-.btn_cierre{
+
+.btn_cierre {
     margin: auto;
     padding: .5rem;
     border: transparent;
@@ -181,8 +209,9 @@ header nav ul li a:hover{
     font-weight: bold;
     margin-bottom: 2rem;
 }
+
 .li,
-.table{
+.table {
     padding: .5rem 0;
     display: grid;
     grid-template-columns: 1fr 1fr .5fr .5fr;
@@ -192,7 +221,8 @@ header nav ul li a:hover{
     border-bottom: .5px #000000 dashed;
     font-size: 14px;
 }
-.ver_registro{
+
+.ver_registro {
     border-radius: .5rem;
     width: 80%;
     padding: 0 .5rem;
@@ -201,13 +231,16 @@ header nav ul li a:hover{
     color: #ffffff;
     font-size: 15px;
 }
-.header-register{
+
+.header-register {
     padding: 1rem;
 }
-.li-register{
+
+.li-register {
     list-style: none;
 }
-.list-register{
+
+.list-register {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -215,8 +248,29 @@ header nav ul li a:hover{
     margin: 1rem 0;
     border-bottom: 1px dashed #000000;
 }
-.icon-closed{
+
+.icon-closed {
     cursor: pointer;
     position: relative;
     margin-left: 95%;
+}
+
+.btn-add-advances {
+    border-radius: 50%;
+    font-size: 30px;
+    background: var(--primario);
+    padding: .5rem;
+    color: var(--blanco);
+    border: transparent;
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 500;
+}
+
+.advances {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: var(--blanco);
 }
