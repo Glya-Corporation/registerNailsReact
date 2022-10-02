@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 
@@ -44,18 +43,18 @@ const Advances = () => {
 
     return (
         <section className="advances">
-            <form onSubmit={handleSubmit(submit)}>
-                <input type="date" {...register('date')} />
-                <input type="text" {...register('amount')} />
-                <input type="text" {...register('description')} />
-                <button>Guardar</button>
+            <form className="form-advance" onSubmit={handleSubmit(submit)}>
+                <input className="fechas--filtrado-input advance" type="date" {...register('date')} />
+                <input className="fechas--filtrado-input advance" type="text" {...register('amount')} placeholder='Monto' />
+                <input className="fechas--filtrado-input descripcion" type="text" {...register('description')} placeholder='Descripción' />
+                <button className="btn_filtrar btn-advance">Guardar</button>
             </form>
             <div className="table">
                 <b className="th">Fecha</b>
                 <b className="th">Monto</b>
                 <b className="th">Descripcion</b>
             </div>
-            <ul>
+            <ul className="list-advances">
                 {
                     advances && (
                         advances.map(advance => (

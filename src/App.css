@@ -255,6 +255,27 @@ header nav ul li a:hover {
     margin-left: 95%;
 }
 
+.form-advance {
+    display: grid;
+    padding: 1rem;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+}
+
+.advance {
+    width: 100%;
+}
+
+.descripcion {
+    width: 100%;
+    grid-column: 1 / 3;
+}
+
+.btn-advance {
+    width: 100%;
+    grid-column: 1 / 3;
+}
+
 .btn-add-advances {
     border-radius: 50%;
     font-size: 30px;
@@ -273,4 +294,15 @@ header nav ul li a:hover {
     height: 100vh;
     position: fixed;
     background-color: var(--blanco);
+    overflow: auto;
+}
+
+.list-advances {
+    margin-bottom: 1rem;
+}
+
+.total-advances {
+    position: fixed;
+    left: 1rem;
+    bottom: 1rem;
 }
