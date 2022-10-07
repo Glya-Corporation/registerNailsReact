@@ -60,6 +60,7 @@ const Header = ({ savedPercentage }) => {
                     <li onClick={() => menu('/deleted-customers')}><span className="material-symbols-outlined iconos-nemu">delete</span> <span className="a">Clientes Eliminados</span> </li>
                     <li onClick={() => alert('Proximamente')}><span className="material-symbols-outlined iconos-nemu">delete</span> <span className="a">Exportar Datos</span> </li>
                     {/* <li><span className="material-symbols-outlined iconos-nemu">edit</span><a onClick={reajuste}>Reajuste</a></li> */}
+                    <li onClick={() => menu('/settings')}><span className="material-symbols-outlined iconos-nemu">settings</span> <span className="a">Configuraciones</span> </li>
                 </ul>
             </nav>
         </header>

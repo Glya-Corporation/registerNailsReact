@@ -1,0 +1,77 @@
+body.green {
+    --primario: #4cad4c;
+    --primarioTransparente: #4cad4c70;
+    --secundario: #007111;
+}
+
+body.green-1 {
+    --primario: #5ccc74;
+    --primarioTransparente: #5ccc7470;
+    --secundario: #018e3c;
+}
+
+body.red {
+    --primario: #c94139;
+    --primarioTransparente: #c9413970;
+    --secundario: #840007;
+}
+
+body.yellow {
+    --primario: #cbcd69;
+    --primarioTransparente: #cbcd6970;
+    --secundario: #8c902e;
+}
+
+body.blue {
+    --primario: #5589c4;
+    --primarioTransparente: #5589c4;
+    --secundario: #005187;
+}
+
+body.purple {
+    --primario: #cd9cb2;
+    --primarioTransparente: #cd9cb2;
+    --secundario: #8f6277;
+}
+
+body.violet {
+    --primario: #be3bce;
+    --primarioTransparente: #be3bce;
+    --secundario: #7d0090;
+}
+
+body.brown {
+    --primario: #d8af97;
+    --primarioTransparente: #d8af9770;
+    --secundario: #a68069;
+}
+
+li {
+    list-style: none;
+}
+
+.list-colors {
+    
+    padding: 0;
+    margin: 0;
+    display: grid;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.item-color {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 40px;
+    width: 340px;
+    height: 100%;
+    box-shadow: 0 0 15px #00000090;
+    cursor: pointer;
+}
+
+.item-color span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}

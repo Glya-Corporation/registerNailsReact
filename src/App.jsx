@@ -7,18 +7,21 @@ import Closed from './componets/Closed'
 //import reajuste from './componets/Reajuste'
 import DeletedCustomers from './componets/DeletedCustomers'
 import { HashRouter, Routes, Route} from 'react-router-dom'
+import Settings from './componets/Settings'
 
 
 function App() {  
   let clientes = JSON.parse(window.localStorage.getItem('clientesGuardados'))
   let savedPercentage = JSON.parse(window.localStorage.getItem('porcentaje'))
   let registro = JSON.parse(window.localStorage.getItem('registro'))
+  let color = window.localStorage.getItem('color')
+  let font = window.localStorage.getItem('font')
 
-
+  document.body.classList.add(color)
 
   return (
     <HashRouter>
-      <div className="App">
+      <div className={font}>
         <Header savedPercentage={savedPercentage}/>
         <Routes>
           <Route path="/" element={<Register clientes={clientes} />} />
@@ -26,6 +29,7 @@ function App() {
           <Route path="/reports" element={<Reports clientes={clientes} porcentaje={savedPercentage} />} />
           <Route path="/closed" element={<Closed clientes={clientes} registro={registro} porcentaje={savedPercentage} />} />
           <Route path="/deleted-customers" element={<DeletedCustomers />} />
+          <Route path="/settings" element={<Settings />} />
         </Routes>
       </div>
     </HashRouter>

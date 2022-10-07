@@ -1,0 +1,26 @@
+[
+    {
+        "name": "ubuntu",
+        "font": "Ubuntu, sans-serif;"
+    },
+    {
+        "name": "montserrat",
+        "font": "Montserrat, sans-serif;"
+    },
+    {
+        "name": "merriweather",
+        "font": "Merriweather, sans-serif;"
+    },
+    {
+        "name": "josefinSans",
+        "font": "Josefin Sans, sans-serif;"
+    },
+    {
+        "name": "dosis",
+        "font": "Dosis, sans-serif;"
+    },
+    {
+        "name": "dancing",
+        "font": "Dancing Script, cursive;"
+    }
+]

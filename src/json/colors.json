@@ -1,0 +1,50 @@
+[
+    {
+        "name": "green",
+        "uno": "#4cad4c",
+        "dos": "#4cad4c70",
+        "tres": "#007111"
+    },
+    {
+        "name": "green-1",
+        "uno": "#5ccc74",
+        "dos": "#5ccc7470",
+        "tres": "#018e3c"
+    },
+    {
+        "name": "red",
+        "uno": "#c94139",
+        "dos": "#c9413970",
+        "tres": "#840007"
+    },
+    {
+        "name": "yellow",
+        "uno": "#cbcd69",
+        "dos": "#cbcd6970",
+        "tres": "#8c902e"
+    },
+    {
+        "name": "blue",
+        "uno": "#5589c4",
+        "dos": "#5589c470",
+        "tres": "#005187"
+    },
+    {
+        "name": "purple",
+        "uno": "#cd9cb2",
+        "dos": "#cd9cb270",
+        "tres": "#8f6277"
+    },
+    {
+        "name": "violet",
+        "uno": "#be3bce",
+        "dos": "#be3bce70",
+        "tres": "#7d0090"
+    },
+    {
+        "name": "brown",
+        "uno": "#d8af97",
+        "dos": "#d8af9770",
+        "tres": "#a68069"
+    }
+]
