@@ -1,3 +1,9 @@
+body.pink {
+    --primario: #af0069;
+    --primarioTransparente: #af006970;
+    --secundario: #48002b;
+}
+
 body.green {
     --primario: #4cad4c;
     --primarioTransparente: #4cad4c70;
@@ -46,12 +52,8 @@ body.brown {
     --secundario: #a68069;
 }
 
-li {
-    list-style: none;
-}
-
 .list-colors {
-    
+
     padding: 0;
     margin: 0;
     display: grid;

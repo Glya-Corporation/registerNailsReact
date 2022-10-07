@@ -1,5 +1,11 @@
 [
     {
+        "name": "pink",
+        "uno": "#af0069",
+        "dos": "#af006970",
+        "tres": "#48002b"
+    },
+    {
         "name": "green",
         "uno": "#4cad4c",
         "dos": "#4cad4c70",

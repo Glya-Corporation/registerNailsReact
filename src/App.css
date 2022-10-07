@@ -17,6 +17,10 @@
     --blanco: #ffffff;
 }
 
+li {
+    list-style: none;
+}
+
 header {
     width: 100vw;
     height: 3rem;
@@ -218,7 +222,7 @@ header nav ul li a:hover {
     display: grid;
     grid-template-columns: 1fr 1fr .5fr .5fr;
     gap: 3px;
-    width: 100vw;
+    width: 100%;
     text-align: center;
     border-bottom: .5px #000000 dashed;
     font-size: 14px;
@@ -301,10 +305,19 @@ header nav ul li a:hover {
 
 .list-advances {
     margin-bottom: 1rem;
+    padding: 0;
 }
 
 .total-advances {
     position: fixed;
     left: 1rem;
     bottom: 1rem;
+}
+
+.section-cierre {
+    width: 100vw;
+}
+
+.section-cierre ul {
+    padding: 0;
 }
