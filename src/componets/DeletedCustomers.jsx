@@ -3,7 +3,7 @@ const DeletedCustomers = () => {
     if (deletedCustomers === null) deletedCustomers = []
 
     return (
-        <>
+        <main className="list-customersDeleted">
             <h2 className="subtitulo">Clientes Eliminados</h2>
             {
                 deletedCustomers.length >= 1 && (
@@ -26,7 +26,7 @@ const DeletedCustomers = () => {
                     </ul>
                 )
             }
-        </>
+        </main>
     );
 };
 

@@ -318,6 +318,8 @@ header nav ul li a:hover {
     width: 100vw;
 }
 
-.section-cierre ul {
+.section-cierre ul,
+.list-registered ul,
+.list-customersDeleted {
     padding: 0;
 }

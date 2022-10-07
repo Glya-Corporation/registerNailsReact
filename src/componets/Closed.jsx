@@ -82,7 +82,7 @@ const Closed = ({ clientes, porcentaje, registro }) => {
                         </section>
                     </main>
                 ) : (
-                    <>
+                    <main className="list-registered">
                         <div className="header-register">
                             <span className="material-symbols-outlined icon-closed" onClick={()=> setShowContent(true)}>close</span>
                             <li className="li-register"><b>Fecha Inicio:</b> {showRegister.inicio}</li>
@@ -107,7 +107,7 @@ const Closed = ({ clientes, porcentaje, registro }) => {
                                 ))
                             }
                         </ul>
-                    </>
+                    </main>
                 )
             }
         </>
