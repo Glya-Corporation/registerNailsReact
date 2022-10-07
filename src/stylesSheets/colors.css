@@ -30,19 +30,19 @@ body.yellow {
 
 body.blue {
     --primario: #5589c4;
-    --primarioTransparente: #5589c4;
+    --primarioTransparente: #5589c470;
     --secundario: #005187;
 }
 
 body.purple {
     --primario: #cd9cb2;
-    --primarioTransparente: #cd9cb2;
+    --primarioTransparente: #cd9cb270;
     --secundario: #8f6277;
 }
 
 body.violet {
     --primario: #be3bce;
-    --primarioTransparente: #be3bce;
+    --primarioTransparente: #be3bce70;
     --secundario: #7d0090;
 }
 
