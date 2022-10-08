@@ -1,8 +1,11 @@
 import { Accordion } from "react-bootstrap";
 import colors from '../json/colors.json';
-import fonts from '../json/fonts.json'
+import fonts from '../json/fonts.json';
+import { useForm } from "react-hook-form";
 
 const Settings = () => {
+    const  [edit, setEdit] = useState(false)
+    const { register, handleSubmit, reset } = useForm()
 
     const changeColor = color => {
         window.localStorage.setItem('color', color)
@@ -13,10 +16,40 @@ const Settings = () => {
         window.localStorage.setItem('font', font)
         window.location.reload()
     }
+    
+    const submit = newUser => {
+      console.log(newUser)
+    }
 
     return (
         <Accordion flush>
             <Accordion.Item eventKey="0">
+                <Accordion.Header>Perfil</Accordion.Header>
+                <Accordion.Body>
+                    <form onSubmit={handleSubmit(submit)}>
+                      {
+                        edit ? (
+                        <>
+                          <input type='text' {...register('firstName')}/>
+                      <input type='text' {...register('lastName')}/>
+                      <input type='date' {...register('date')}/>
+                      <input type='email' {...register('email')}/>
+                      <button onClick={() => saveData()} className='material-symbols-outlined'>saved</button>
+                      </>
+                        ) : (
+                        <>
+                        <label>{user.firtName}</label>
+                      <label>{user.lastName}</label>
+                      <label>{user.date}</label>
+                      <label>{user.email}</label>
+                      </>
+                        )
+                      }
+                    </form>
+                    <button onClick={() => editData()} className='material-symbols-outlined'>add</button>
+                </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="1">
                 <Accordion.Header>Temas</Accordion.Header>
                 <Accordion.Body>
                     <ul className="list-colors">
@@ -32,7 +65,7 @@ const Settings = () => {
                     </ul>
                 </Accordion.Body>
             </Accordion.Item>
-            <Accordion.Item eventKey="1">
+            <Accordion.Item eventKey="2">
                 <Accordion.Header>Fuentes</Accordion.Header>
                 <Accordion.Body>
                     <ul className="list-font">
