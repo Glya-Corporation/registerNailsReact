@@ -60,7 +60,7 @@ const Settings = () => {
                                 </>
                             )
                         }
-                        <button type="button" onClick={() => setEdit(!edit)} className='btn-profile'><span className="material-symbols-outlined">{user === null ? 'add' : 'edit'}</span>Editar datos</button>
+                        <button type="button" onClick={() => setEdit(!edit)} className='btn-profile'><span className="material-symbols-outlined">{user === null ? 'add' : 'edit'}</span>{user === null ? 'Agregar' : 'Editar'} usuario</button>
                     </form>
                 </Accordion.Body>
             </Accordion.Item>
