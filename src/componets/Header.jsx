@@ -51,7 +51,7 @@ const Header = ({ savedPercentage }) => {
         <header>
             <nav>
                 <span onClick={showMenu} className={`material-symbols-outlined icono-menu ${girar}`}>{iconMenu}</span>
-                <h4>Hola! {user?.firstName} {user?.lastName} {( (user?.firstName).toLowerCase() === 'andreina' || (user?.firstName).toLowerCase() === 'nina') && 'Te Amo'}</h4>
+                <h4>Hola! {user?.firstName} {user?.lastName} {( (user?.firstName)?.toLowerCase() === 'andreina' || (user?.firstName)?.toLowerCase() === 'nina') && 'Te Amo'}</h4>
                 <ul id="menu" className={`menu ${menuIsVisible}`}>
                     <li onClick={() => menu('/')}><span className="material-symbols-outlined iconos-nemu">person_add</span> <span className="a">Nuevo Cliente</span> </li>
                     <li onClick={() => menu('/customers')}><span className="material-symbols-outlined iconos-nemu">group</span> <span className="a">Clientes</span> </li>
