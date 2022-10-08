@@ -6,8 +6,8 @@ import Reports from './componets/Reports'
 import Closed from './componets/Closed'
 //import reajuste from './componets/Reajuste'
 import DeletedCustomers from './componets/DeletedCustomers'
-import { HashRouter, Routes, Route} from 'react-router-dom'
 import Settings from './componets/Settings'
+import { HashRouter, Routes, Route} from 'react-router-dom'
 
 
 function App() {  
