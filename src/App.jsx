@@ -10,7 +10,7 @@ import { HashRouter, Routes, Route} from 'react-router-dom'
 import reajuste from './componets/Reajuste'
 
 function App() {
-  reajuste()
+  //reajuste()
   const data = JSON.parse(window.localStorage.getItem('data'))
   const color = data.settings?.color
   const font = data.settings?.font
