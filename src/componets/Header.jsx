@@ -51,7 +51,7 @@ const Header = ({ savedPercentage, data }) => {
                     <li onClick={() => menu('/')}><span className="material-symbols-outlined iconos-nemu">event</span> <span className="a">Reservaciones</span> </li>
                     <li onClick={() => menu('/closed')}><span className="material-symbols-outlined iconos-nemu">published_with_changes</span> <span className="a">Cierre Semanal</span> </li>
                     <li onClick={() => menu('/deleted-customers')}><span className="material-symbols-outlined iconos-nemu">delete</span> <span className="a">Clientes Eliminados</span> </li>
-                    <li onClick={() => ExportToJson(data)}><span className="material-symbols-outlined iconos-nemu">delete</span> <span className="a">Exportar Datos</span> </li>
+                    <li onClick={() => ExportToJson(data)}><span className="material-symbols-outlined iconos-nemu">file_download</span> <span className="a">Exportar Datos</span> </li>
                     <li onClick={() => menu('/settings')}><span className="material-symbols-outlined iconos-nemu">settings</span> <span className="a">Configuraciones</span> </li>
                 </ul>
             </nav>
