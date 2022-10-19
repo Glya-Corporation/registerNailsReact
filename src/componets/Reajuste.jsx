@@ -1,6 +1,5 @@
 const Reajuste = () => {
     const porcentaje = JSON.parse(window.localStorage.getItem('porcentaje'))
-    const idGuardada = JSON.parse(window.localStorage.getItem('idGuardada'))
     const clientesGuardados = JSON.parse(window.localStorage.getItem('clientesGuardados'))
     const color = window.localStorage.getItem('color')
     const font = window.localStorage.getItem('font')
