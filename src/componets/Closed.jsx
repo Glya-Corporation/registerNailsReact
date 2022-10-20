@@ -1,8 +1,7 @@
 import { useState } from "react";
 
-const Closed = ({ clientes, porcentaje, registro }) => {
+const Closed = ({ clientes, porcentaje, registro, data }) => {
     let customers = clientes
-    if (registro === null) registro = []
     const [showContent, setShowContent] = useState(true)
     const [showRegister, setShowRegister] = useState({})
 
@@ -28,28 +27,31 @@ const Closed = ({ clientes, porcentaje, registro }) => {
             }
 
             registro.unshift(registroActual)
-            window.localStorage.setItem('registro', JSON.stringify(registro))
-            customers = []
-            window.localStorage.setItem('clientesGuardados', JSON.stringify(customers))
-            window.localStorage.setItem('advances', JSON.stringify(customers))
+
+            data.storage.register = registro
+            data.storage.advances = []
+            data.storage.customers = []
+
+            window.localStorage.setItem('data', JSON.stringify(data))
             alert('Cierre realizado con exito')
             window.location.reload()
         }
     }
 
-    const show = data => {
-        let registroV = registro.find(reg => reg.inicio === data)
+    const show = newData => {
+        let registroV = registro.find(reg => reg.inicio === newData)
         setShowRegister(registroV)
         setShowContent(false)
     }
 
     const closeDelete = fechaInicial => {
         const newRegister = registro.filter(element => element.inicio !== fechaInicial)
-        registro = []
         registro = [...newRegister]
-        window.localStorage.setItem('registro', JSON.stringify(registro))
+
+        data.storage.register = registro
+        window.localStorage.setItem('data', JSON.stringify(data))
         alert('Registro eliminado con exito')
-        setShowContent(true)
+        window.location.reload()
     }
 
     

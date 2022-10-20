@@ -295,9 +295,9 @@ header nav ul li a:hover {
     padding: .5rem;
     color: var(--blanco);
     border: transparent;
-    position: absolute;
+    position: fixed;
     right: 1rem;
-    bottom: 1rem;
+    bottom: .5rem;
     z-index: 500;
 }
 
@@ -317,7 +317,7 @@ header nav ul li a:hover {
 .total-advances {
     position: fixed;
     left: 1rem;
-    bottom: 1rem;
+    bottom: .5rem;
 }
 
 .section-cierre {

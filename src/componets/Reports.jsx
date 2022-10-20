@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Advances from "./Advances";
 
-const Reports = ({ clientes, porcentaje }) => {
+const Reports = ({ clientes, porcentaje, data }) => {
     const [isVisible, setIsVisible] = useState(true)
     const [contador, setContador] = useState({})
     const [totalCobrado, setTotalCobrado] = useState(0)
@@ -13,7 +13,7 @@ const Reports = ({ clientes, porcentaje }) => {
 
     const totalAdvances = () => {
         let total = 0
-        let advancesSumar = JSON.parse(window.localStorage.getItem('advances'))
+        let advancesSumar = data.storage?.advances
         if (advancesSumar !== null) {
             advancesSumar.forEach(advance => {
                 total += parseFloat(advance.amount)
@@ -29,7 +29,7 @@ const Reports = ({ clientes, porcentaje }) => {
     }
 
 
-    const data = (usersData) => {
+    const calcular = (usersData) => {
         /* Declaracion y comprotamientos de Variables */
         const contando = {
             Manicure: 0,
@@ -53,16 +53,17 @@ const Reports = ({ clientes, porcentaje }) => {
 
         /* Calcular totales */
         usersData.forEach(element => {
-            cobrado += parseFloat(element.price)
+            cobrado += element.price
         })
+        console.log(porcentaje);
         setContador({ ...contando })
         setTotalCobrado(cobrado.toFixed(2))
         if (porcentaje === null) porcentaje = 0
-        setPorcentajeDeGanancia(porcentaje)
+        setPorcentajeDeGanancia(Number(porcentaje))
     }
 
     useEffect(() => {
-        if (clientes) data(clientes)
+        if (clientes) calcular(clientes)
     }, [])
 
 
@@ -84,7 +85,7 @@ const Reports = ({ clientes, porcentaje }) => {
     return (
         <div>
             {
-                btnAdvances && <Advances />
+                btnAdvances && <Advances data={data} />
             }
             <main className="contenedor">
                 <h2 className="titulo">Reportes</h2>

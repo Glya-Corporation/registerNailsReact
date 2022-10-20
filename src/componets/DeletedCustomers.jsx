@@ -1,6 +1,6 @@
-const DeletedCustomers = () => {
-    let deletedCustomers = JSON.parse(window.localStorage.getItem('clientesEliminados'))
-    if (deletedCustomers === null) deletedCustomers = []
+const DeletedCustomers = ({ data }) => {
+    let deletedCustomers = data.storage.deletedCustomers
+
 
     return (
         <main className="list-customersDeleted">

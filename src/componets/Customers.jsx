@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Customers = ({ clientes }) => {
+const Customers = ({ clientes, data }) => {
     if (clientes === null) clientes = []
     const [isVisible, setIsVisible] = useState(true)
     const [clientesPrint, setClientesPrint] = useState([])
@@ -30,27 +30,30 @@ const Customers = ({ clientes }) => {
 
     function alertDelete(id) {
         let respuesta = prompt('¿Estas segura que deseas eliminar a esta cliente?');
-        let clientesEliminados = JSON.parse(window.localStorage.getItem('clientesEliminados'))
-        if (clientesEliminados === null) clientesEliminados = []
+        let clientesEliminados = data.storage.deletedCustomers
+        
 
-        if (respuesta.toLowerCase() === 'si') {
+        if (respuesta.toLowerCase() === 'si' ) {
             const clientesDelete = clientes.splice(id, 1)
+            const deleted = clientesDelete[0]
             const motivo = prompt('Ingrese el motivo de la eliminacion')
             
-            window.localStorage.setItem('clientesGuardados', JSON.stringify(clientes))
-            
-            clientesDelete[0].estado = 'eliminado'
-            clientesDelete[0].motivo = motivo
 
-            clientesEliminados.unshift(clientesDelete[0])
+            deleted.estado = 'eliminado'
+            deleted.motivo = motivo
+
+            clientesEliminados.unshift(deleted)
+
+            data.storage.deletedCustomers = clientesEliminados
             
-            window.localStorage.setItem('clientesEliminados', JSON.stringify(clientesEliminados))
+            window.localStorage.setItem('data', JSON.stringify(data))
             alert('Cliente eliminado satisfactoriamente')
         } else {
             alert('No se ha eliminado ningun cliente')
         }
     }
-
+ 
+    console.log('holaaaaaaa')
 
     return (
         <div>

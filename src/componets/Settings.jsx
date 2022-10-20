@@ -3,33 +3,43 @@ import colors from '../json/colors.json';
 import fonts from '../json/fonts.json';
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import Porcentage from "./Porcentage";
 
 
-const Settings = () => {
+const Settings = ({ data }) => {
     const [edit, setEdit] = useState(false)
     const { register, handleSubmit, reset } = useForm()
-    const user = JSON.parse(window.localStorage.getItem('user'))
+    const user = data
 
 
     const changeColor = color => {
-        window.localStorage.setItem('color', color)
+        data.settings.color = color
+        window.localStorage.setItem('data', JSON.stringify(data))
         window.location.reload()
     }
 
     const changeFont = font => {
-        window.localStorage.setItem('font', font)
+        data.settings.font = font
+        window.localStorage.setItem('data', JSON.stringify(data))
         window.location.reload()
     }
 
     const submit = newUser => {
         if (newUser.firstName !== '' && newUser.lastName !== '' && newUser.date !== '' && newUser.email !== '') {
-            window.localStorage.setItem('user', JSON.stringify(newUser))
+            data.firstName = newUser.firstName
+            data.lastName = newUser.lastName
+            data.email = newUser.email
+            data.birthDate = newUser.birthDate
+            window.localStorage.setItem('data', JSON.stringify(data))
             window.location.reload()
         } else {
             alert('Debe llenar todos los campos')
         }
+    }
+
+    const changePorcentage = () => {
+        Porcentage()
+        window.location.reload();
     }
 
     const resetData = () => {
@@ -47,7 +57,7 @@ const Settings = () => {
                                 <>
                                     <input className='profile-fields' placeholder={user?.firstName} type='text' {...register('firstName')} />
                                     <input className='profile-fields' placeholder={user?.lastName} type='text' {...register('lastName')} />
-                                    <input className='profile-fields' placeholder={user?.date} type='date' {...register('date')} />
+                                    <input className='profile-fields' placeholder={user?.date} type='date' {...register('birthDate')} />
                                     <input className='profile-fields' placeholder={user?.email} type='email' {...register('email')} />
                                     <button className='btn-profile'><span className="material-symbols-outlined">save</span>Guardar Cambios</button>
                                 </>
@@ -55,7 +65,7 @@ const Settings = () => {
                                 <>
                                     <label className='profile-fields'>{user?.firstName}</label>
                                     <label className='profile-fields'>{user?.lastName}</label>
-                                    <label className='profile-fields'>{user?.date}</label>
+                                    <label className='profile-fields'>{user?.birthDate}</label>
                                     <label className='profile-fields'>{user?.email}</label>
                                 </>
                             )
@@ -90,6 +100,14 @@ const Settings = () => {
                             ))
                         }
                     </ul>
+                </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="3">
+                <Accordion.Header>Porcentaje de ganacia</Accordion.Header>
+                <Accordion.Body>
+                    <label className='profile-fields'>Tus ganancias son del {data.settings?.porcentage} %</label>
+                    <hr />
+                    <button onClick={() => changePorcentage()} className='btn-profile'>Cambiar porcentaje</button>
                 </Accordion.Body>
             </Accordion.Item>
         </Accordion>

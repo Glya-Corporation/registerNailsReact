@@ -1,10 +1,9 @@
 import { useForm } from "react-hook-form";
 
 
-const Advances = () => {
+const Advances = ({ data }) => {
     const { register, handleSubmit, reset } = useForm();
-    let advances = JSON.parse(window.localStorage.getItem('advances'))
-    if (advances === null) advances = [];
+    let advances = data.storage?.advances
     let total = 0
 
     
@@ -17,9 +16,11 @@ const Advances = () => {
     totalAdvances()
 
     const submit = newAdvance => {
-        let date = new Date();
+        let date = Number(new Date())
+        newAdvance.id = date
         advances.unshift(newAdvance)
-        window.localStorage.setItem('advances', JSON.stringify(advances))
+        data.storage.advances = advances
+        window.localStorage.setItem('data', JSON.stringify(data))
         resetData()
         totalAdvances()
     }
@@ -36,8 +37,10 @@ const Advances = () => {
     }
 
     const deleteAdvance = id => {
-        const newAdvances = advances.filter(advance => advance.date !== id)
-        window.localStorage.setItem('advances', JSON.stringify(newAdvances))
+        const newAdvances = advances.filter(advance => Number(advance.id) !== Number(id))
+        data.storage.advances = newAdvances
+        console.log(data)
+        window.localStorage.setItem('data', JSON.stringify(data))
         resetData()
     }
 
@@ -58,7 +61,7 @@ const Advances = () => {
                 {
                     advances && (
                         advances.map(advance => (
-                            <li className="li" id={advance.date} key={advance.date}>
+                            <li className="li" id={advance.id} key={advance.date}>
                                 <p className="td">{advance.date}</p>
                                 <p className="td">{advance.amount} $</p>
                                 <p className="td">{advance.description}</p>
